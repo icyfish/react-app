@@ -19,6 +19,10 @@ export default function CustomCode(props) {
   let selector = ".moreLink";
 
   let ref = useDelegateEvent(eventType, selector, (e, targetNode) => {
+    if (!targetNode) {
+      console.log("no target node");
+      return;
+    }
     let clickLinkHttp = targetNode.getAttribute("data-url");
     let clickLinkApp = targetNode.getAttribute("data-appurl");
     let clickLinkMiniProgram = targetNode.getAttribute("data-miniprogramurl");
@@ -35,6 +39,6 @@ export default function CustomCode(props) {
   return <div dangerouslySetInnerHTML={{ __html: markup }} ref={ref} />;
 }
 
-const handleClick = (options) => {
+const handleClick = options => {
   console.log(options);
 };

@@ -1,8 +1,6 @@
-const codeBlock = `<script>
-  console.log(111);
-&lt/script>
-<script>
-  console.log(222);
-&lt/script>`;
+const codeBlock = `
+<div data-url="https://m.ctrip.com" class="moreLink"><h1>outer</h1></div>
+<div><h1 data-url="https://m.ctrip.com" class="moreLink">inner</h1></div>
+`;
 
 export { codeBlock };

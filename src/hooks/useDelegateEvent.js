@@ -3,18 +3,18 @@ import { useEffect, useRef } from "react";
 const useDelegateEvent = (type, selector, handler) => {
   let ref = useRef();
   useEffect(() => {
-    const cur = ref.current;
-    if (!cur) return;
+    const element = ref.current;
+    if (!element) return;
 
-    let handleEvent = (event) => {
-      let targetNode = getTargetNode(cur, event.target, selector);
+    let handleEvent = event => {
+      let targetNode = getTargetNode(element, event.target, selector);
       if (targetNode) handler(event, targetNode);
     };
 
-    cur.addEventListener(type, handleEvent, false);
+    element.addEventListener(type, handleEvent, false);
 
     return () => {
-      cur.removeEventListener(type, handleEvent, false);
+      element.removeEventListener(type, handleEvent, false);
     };
   }, [type, selector, handler]);
 
@@ -25,7 +25,7 @@ export default useDelegateEvent;
 
 const getTargetNode = (container, target, selector) => {
   let elemList = container.querySelectorAll(selector);
-  let targetNode = Array.from(elemList).find((elem) => {
+  let targetNode = Array.from(elemList).find(elem => {
     return isDescendant(elem, target);
   });
   return targetNode;
