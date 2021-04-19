@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { codeBlock } from "./mock/data";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App codeBlock={codeBlock} />
   </React.StrictMode>,
   document.getElementById('root')
 );
