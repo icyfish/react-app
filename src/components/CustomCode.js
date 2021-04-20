@@ -19,10 +19,7 @@ export default function CustomCode(props) {
   let selector = ".moreLink";
 
   let ref = useDelegateEvent(eventType, selector, (e, targetNode) => {
-    if (!targetNode) {
-      console.log("no target node");
-      return;
-    }
+    
     let clickLinkHttp = targetNode.getAttribute("data-url");
     let clickLinkApp = targetNode.getAttribute("data-appurl");
     let clickLinkMiniProgram = targetNode.getAttribute("data-miniprogramurl");
@@ -40,5 +37,6 @@ export default function CustomCode(props) {
 }
 
 const handleClick = options => {
+  // 针对多个链接区分平台的点击处理, 这里不展开
   console.log(options);
 };
