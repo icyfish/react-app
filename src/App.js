@@ -1,18 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import CustomCode from "./components/CustomCode";
-import { codeBlock } from "./mock/data";
+// import CustomCode from "./components/CustomCode";
+// import { codeBlock } from "./mock/data";
+import ImmerGifts from "./components/immer/gifts";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <CustomCode codeBlock={codeBlock} />
-      </header>
+      <div className="hidden">react-app</div>
+      <ImmerGifts />
+      {/* <CustomCode codeBlock={codeBlock} /> */}
     </div>
   );
 }
